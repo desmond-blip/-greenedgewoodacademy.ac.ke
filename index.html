@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Green Edgewood Academy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: Arial, sans-serif;
+      height: 100%;
+    }
+
+    /* School Name Banner */
+    .school-name {
+      background: linear-gradient(90deg, #fddb3a, #f7c948, #fddb3a);
+      text-align: center;
+      padding: 15px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #000;
+      text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6);
+      position: relative;
+    }
+
+    .school-name .logo {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .school-name .logo img {
+      height: 60px;
+    }
+
+    /* Navigation */
+    header {
+      background: linear-gradient(to right,#f7c948,#fdd835);
+      display: flex;
+      justify-content: center;
+      padding: 10px 5%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 16px;
+      border-radius: 6px;
+      background-color: rgba(255,255,255,0.2);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* Banner Section */
+    .banner {
+      background-image: url('back1.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 40px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .right-box {
+      max-width: 450px;
+      background: rgba(255, 255, 150, 0.88);
+      border-radius: 8px;
+      padding: 25px;
+      color: #333;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+
+    .right-box h2 {
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .right-box p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .notice-button {
+      position: absolute;
+      right: 5%;
+      top: 10%;
+      background: #ff6347;
+      color: #fff;
+      padding: 12px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    /* About Section */
+    .about-section {
+      display: flex;
+      justify-content: space-between;
+      padding: 50px 5%;
+      background: #fff;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .about-left {
+      flex: 1;
+    }
+
+    .about-left h2 {
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    /* Sliding Images Section (Below About) */
+    .slide-section {
+      background: #fafafa;
+      padding: 40px 5%;
+      overflow: hidden;
+    }
+
+    .slide-images {
+      width: 200%;
+      display: flex;
+      animation: slide 25s infinite linear;
+    }
+
+    .slide-images img {
+      width: 20%;
+      border-radius: 10px;
+      margin-right: 15px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Map Section */
+    .map {
+      text-align: center;
+      padding: 30px 5%;
+      background: #fff;
+    }
+
+    iframe {
+      border: 0;
+      width: 100%;
+      height: 350px;
+      border-radius: 8px;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 5%;
+      flex-wrap: wrap;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 5px;
+    }
+
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-section ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin-right: 15px;
+      font-size: 20px;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      color: white;
+      font-size: 32px;
+      padding: 15px;
+      border-radius: 50%;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      animation: bounce 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      background: #20ba5a;
+      transform: scale(1.1);
+    }
+
+    .whatsapp-tooltip {
+      position: fixed;
+      bottom: 95px;
+      right: 35px;
+      background: #25d366;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .whatsapp-float:hover + .whatsapp-tooltip {
+      display: block;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- School Name and Logo -->
+  <div class="school-name">
+    <div class="logo">
+      <img src="logo1.png" alt="Green Edgewood Academy Logo">
+    </div>
+    GREEN EDGEWOOD ACADEMY
+  </div>
+
+  <!-- Navigation Menu -->
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="students.html">Students Portal</a></li>
+      <li><a href="teachers.html">Teachers Portal</a></li>
+      <li><a href="rules.html">Rules & Regulations</a></li>
+      <li><a href="lib.html">Library Repository</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <a href="notice.html" class="notice-button">📌 Notice Board</a>
+    <div class="right-box">
+      <h2>No. 3 in Kiambu County</h2>
+      <h2>No. 2 in Ruiru Sub-county</h2>
+      <p>📍 Githurai - Mwihoko Road, Nairobi, Kenya</p>
+      <p>📞 0759 285800</p>
+      <p>📧 greenedgewood.academy@gmail.com</p>
+      <p>🌐 greenedgewoodacademy.sc.ke</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-left">
+      <h2>About Us</h2>
+      <p>Green Edgewood Academy is a leading institution in Kiambu County known for its strong academic performance and character-building education. We strive to provide holistic learning that nurtures every student’s potential.</p>
+    </div>
+  </section>
+
+  <!-- Sliding Images (Below About) -->
+  <section class="slide-section">
+    <div class="slide-images">
+      <img src="img1.jpg" alt="">
+      <img src="img2.jpg" alt="">
+      <img src="img3.jpg" alt="">
+      <img src="img4.jpg" alt="">
+      <img src="img5.jpg" alt="">
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map">
+    <h2>Find Us Here</h2>
+    <iframe 
+      src="https://www.google.com/maps?q=Githurai+Mwihoko+Road,+Nairobi,+Kenya&output=embed"
+      allowfullscreen>
+    </iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Phone: 0759 285800<br>Email: greenedgewood.academy@gmail.com</p>
+    </div>
+    <div class="footer-section">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Icon -->
+  <a href="https://wa.me/254759285800" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <div class="whatsapp-tooltip">Chat with us</div>
+
+</body>
+</html>

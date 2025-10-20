@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deputy Head Teacher - Green Edgewood Academy</title>
+  <link rel="stylesheet" href="principal.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the Deputy Head Teacher's Office</h1>
+    <p>Green Edgewood Academy</p>
+  </header>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f8fb;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #005792;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 5px solid #003f5c;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px;
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .profile img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 10px;
+      margin-right: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .bio {
+      flex: 1;
+    }
+
+    .bio h2 {
+      color: #005792;
+      margin-top: 0;
+    }
+
+    .vision-mission {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 30px;
+      background-color: #eaf4fc;
+    }
+
+    .vision, .mission {
+      flex: 1;
+      min-width: 300px;
+      margin: 10px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid #005792;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .announcements {
+      padding: 30px;
+      background: #ffffff;
+    }
+
+    .announcements h3 {
+      color: #005792;
+      margin-bottom: 15px;
+    }
+
+    .announcements ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .announcements li {
+      background: #f1f9ff;
+      border-left: 4px solid #005792;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .notice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .notice-item {
+      background-color: #eaf4fc;
+      padding: 12px;
+      border-radius: 8px;
+      border-left: 4px solid #005792;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #005792;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #003f5c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #005792;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+
+  <section class="profile">
+    <img src="headteacher.jpg" alt="Deputy Head Teacher Photo">
+    <div class="bio">
+      <h2>Mr. Desmond Elliot</h2>
+      <p>
+        As the Deputy Head Teacher of Green Edgewood Academy, I take this opportunity to address all teachers,
+        learners, and support staff on the importance of discipline and teamwork in building a successful school.
+        Discipline forms the cornerstone of learning, respect, and responsibility. Together, we can maintain an
+        environment that nurtures excellence and good character.
+        <br><br>
+        To the learners: your future success begins with how you conduct yourselves today. Respect your teachers,
+        follow school rules, and give your best effort in every activity.
+        <br><br>
+        To the teachers: let us continue setting positive examples and fostering a caring yet disciplined atmosphere
+        for our learners.
+        <br><br>
+        To our non-teaching staff: your contribution in maintaining order and supporting school operations is deeply
+        appreciated. Let’s all work together toward a better, brighter Green Edgewood Academy.
+      </p>
+    </div>
+  </section>
+
+  <section class="vision-mission">
+    <div class="vision">
+      <h3>🌟 Vision</h3>
+      <p>To nurture confident, disciplined, and academically excellent learners who positively impact society.</p>
+    </div>
+    <div class="mission">
+      <h3>🎯 Mission</h3>
+      <p>To provide holistic, quality education in a safe and inclusive environment that promotes integrity,
+        creativity, and lifelong learning.</p>
+    </div>
+  </section>
+
+  <section class="announcements">
+    <h3>📢 Announcements</h3>
+    <ul id="announcementList">
+      <li>✅ CBC Assessments for PP1 to Grade 7 ongoing this term.</li>
+      <li>📌 Mid-term exams scheduled for 12th July 2025.</li>
+      <li>🗓️ Parents’ meeting scheduled for 28th July 2025.</li>
+      <li>🏫 Closing date for Term 2: 9th August 2025.</li>
+    </ul>
+
+    <h4>🗂️ Notice Grid</h4>
+    <div class="notice-grid" id="noticeGrid">
+      <div class="notice-item">📄 CBC Term 1 Reports</div>
+      <div class="notice-item">📄 CBC Term 2 Reports</div>
+      <div class="notice-item">📝 PP1 Assessment Results</div>
+      <div class="notice-item">📝 Grade 7 Exams</div>
+      <div class="notice-item">👪 Parents Meeting: 28 July 2025</div>
+      <div class="notice-item">📅 Closing: 9 August 2025</div>
+      <div class="notice-item">📅 Reopening: 2 September 2025</div>
+    </div>
+
+    <button onclick="downloadNotices()">📥 Download PDF</button>
+  </section>
+
+  <footer>
+    &copy; 2025 Green Edgewood Academy | All Rights Reserved
+  </footer>
+
+  <script>
+    async function downloadNotices() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFontSize(14);
+      doc.text("Green Edgewood Academy - Notices & Announcements", 10, 15);
+
+      const listItems = document.querySelectorAll("#announcementList li");
+      let y = 25;
+      listItems.forEach((item) => {
+        doc.text(`- ${item.textContent}`, 10, y);
+        y += 10;
+      });
+
+      doc.text("Notice Grid:", 10, y + 10);
+      y += 20;
+
+      const gridItems = document.querySelectorAll(".notice-item");
+      gridItems.forEach((item) => {
+        doc.text(`• ${item.textContent}`, 10, y);
+        y += 10;
+      });
+
+      doc.save("green_edgewood_notices.pdf");
+    }
+  </script>
+</body>
+</html>

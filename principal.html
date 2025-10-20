@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Head Teacher - Green Edgewood Academy</title>
+  <link rel="stylesheet" href="headteacher.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the Head Teacher's Office</h1>
+    <p>Green Edgewood Academy</p>
+  </header>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f8fb;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #006633;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 5px solid #004d26;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px;
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .profile img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 10px;
+      margin-right: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .bio {
+      flex: 1;
+    }
+
+    .bio h2 {
+      color: #006633;
+      margin-top: 0;
+    }
+
+    .vision-mission {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 30px;
+      background-color: #eafaf0;
+    }
+
+    .vision, .mission {
+      flex: 1;
+      min-width: 300px;
+      margin: 10px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid #006633;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .announcements {
+      padding: 30px;
+      background: #ffffff;
+    }
+
+    .announcements h3 {
+      color: #006633;
+      margin-bottom: 15px;
+    }
+
+    .announcements ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .announcements li {
+      background: #f1fff5;
+      border-left: 4px solid #006633;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .notice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .notice-item {
+      background-color: #eafaf0;
+      padding: 12px;
+      border-radius: 8px;
+      border-left: 4px solid #006633;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #006633;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #004d26;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #006633;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+
+  <section class="profile">
+    <img src="headteacher.jpg" alt="Head Teacher Photo">
+    <div class="bio">
+      <h2>Mr. Peter</h2>
+      <p>
+        As the Head Teacher of Green Edgewood Academy, I am dedicated to providing a nurturing environment 
+        that fosters discipline, creativity, and academic excellence. Our goal is to develop confident, 
+        responsible learners equipped with the knowledge and values needed to thrive in life.
+      </p>
+    </div>
+  </section>
+
+  <section class="vision-mission">
+    <div class="vision">
+      <h3>🌟 Vision</h3>
+      <p>To be a center of excellence nurturing confident, creative, and responsible learners.</p>
+    </div>
+    <div class="mission">
+      <h3>🎯 Mission</h3>
+      <p>To provide quality and holistic education through discipline, integrity, and innovation.</p>
+    </div>
+  </section>
+
+  <section class="announcements">
+    <h3>📢 Announcements</h3>
+    <ul id="announcementList">
+      <li>✅ Term 2 Assessments for PP1 to Grade 7 have been released.</li>
+      <li>📌 Academic Day scheduled for 24th June 2025.</li>
+      <li>🗓️ Parents' meeting on 28th June 2025.</li>
+      <li>🏫 Mid-Term break begins on 5th July 2025.</li>
+    </ul>
+
+    <h4>🗂️ Notice Grid</h4>
+    <div class="notice-grid" id="noticeGrid">
+      <div class="notice-item">📄 PP1 Term 1 Results</div>
+      <div class="notice-item">📄 PP2 Term 1 Results</div>
+      <div class="notice-item">📝 Grade 1 Term 1 Exams</div>
+      <div class="notice-item">📝 Grade 3 Term 2 Exams</div>
+      <div class="notice-item">📝 Grade 5 Term 3 Exams</div>
+      <div class="notice-item">👪 Parent Meeting: 28 June 2025</div>
+      <div class="notice-item">📅 Mid-Term Break: 5 July 2025</div>
+      <div class="notice-item">📅 School Reopens: 2 September 2025</div>
+    </div>
+
+    <button onclick="downloadNotices()">📥 Download PDF</button>
+  </section>
+
+  <footer>
+    &copy; 2025 Green Edgewood Academy. All rights reserved.<br>
+    Githurai–Mwihoko Road, Nairobi, Kenya | 0759 285800 | greenedgewoodacademy.sc.ke
+  </footer>
+
+  <script>
+  async function downloadNotices() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.setFontSize(14);
+    doc.text("Green Edgewood Academy - Notices & Announcements", 10, 15);
+
+    const listItems = document.querySelectorAll("#announcementList li");
+    let y = 25;
+    listItems.forEach((item) => {
+      doc.text(`- ${item.textContent}`, 10, y);
+      y += 10;
+    });
+
+    doc.text("Notice Grid:", 10, y + 10);
+    y += 20;
+
+    const gridItems = document.querySelectorAll(".notice-item");
+    gridItems.forEach((item) => {
+      doc.text(`• ${item.textContent}`, 10, y);
+      y += 10;
+    });
+
+    doc.save("green_edgewood_notices.pdf");
+  }
+
+  function addNotice() {
+    const fileInput = document.getElementById("pdfUpload");
+    const titleInput = document.getElementById("pdfTitle");
+    const file = fileInput.files[0];
+    const title = titleInput.value.trim();
+
+    if (!file || !title) {
+      alert("Please select a PDF and provide a title.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const blobURL = e.target.result;
+      const grid = document.getElementById("noticeGrid");
+      const div = document.createElement("div");
+      div.className = "notice-item";
+      div.innerHTML = `📎 ${title}<br/><a href="${blobURL}" download="${title}.pdf" target="_blank">📥 Download</a>`;
+      grid.appendChild(div);
+
+      // Clear inputs
+      fileInput.value = "";
+      titleInput.value = "";
+    };
+    reader.readAsDataURL(file);
+  }
+  </script>
+
+</body>
+</html>

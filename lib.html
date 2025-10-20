@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Green Edgewood Academy Library</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #004d40;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #004d40;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #004d40;
+      color: white;
+    }
+
+    a.button {
+      padding: 6px 12px;
+      background-color: #00796b;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #004d40;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Green Edgewood Academy Library System</h1>
+    <p>Empowering Learners Through Knowledge</p>
+  </header>
+
+  <main>
+    <input type="text" id="searchInput" onkeyup="searchExams()" placeholder="Search exam, grade, or subject (e.g. 'Math' or 'Grade 4')">
+
+    <!-- Library Usage -->
+    <section>
+      <h2>Library Usage Guide</h2>
+      <p>The Green Edgewood Academy Library is open to all pupils and staff for academic growth and reading enrichment. Pupils can read, borrow, and return storybooks, revision books, and learning materials.</p>
+
+      <h3>How to Borrow a Book:</h3>
+      <ul>
+        <li>Ask the librarian or use the catalog to find your book.</li>
+        <li>Present your library card to borrow.</li>
+        <li>Each pupil may borrow up to 2 books for 1 week.</li>
+      </ul>
+
+      <h3>How to Return a Book:</h3>
+      <ul>
+        <li>Return books on or before the due date.</li>
+        <li>Late returns will attract a small penalty.</li>
+      </ul>
+
+      <h3>Library Rules and Regulations:</h3>
+      <ul>
+        <li>Maintain silence and cleanliness.</li>
+        <li>No food or drinks allowed.</li>
+        <li>Handle all books with care.</li>
+        <li>Respect library staff and other readers.</li>
+      </ul>
+    </section>
+
+    <!-- KCPE / CBC Past Papers -->
+    <section>
+      <h2>Past Papers Repository</h2>
+      <table class="searchable-table">
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Paper Name</th>
+            <th>View</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Grade 7</td>
+            <td>Mathematics End Term 1 - 2024</td>
+            <td><a class="button" href="papers/grade7/math_term1_2024.pdf" target="_blank">View</a></td>
+            <td><a class="button" href="papers/grade7/math_term1_2024.pdf" download>Download</a></td>
+          </tr>
+          <tr>
+            <td>Grade 6</td>
+            <td>English End Term 2 - 2023</td>
+            <td><a class="button" href="papers/grade6/english_term2_2023.pdf" target="_blank">View</a></td>
+            <td><a class="button" href="papers/grade6/english_term2_2023.pdf" download>Download</a></td>
+          </tr>
+          <tr>
+            <td>PP2</td>
+            <td>Numeracy Assessment - Term 1</td>
+            <td><a class="button" href="papers/pp2/numeracy_term1.pdf" target="_blank">View</a></td>
+            <td><a class="button" href="papers/pp2/numeracy_term1.pdf" download>Download</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Notes Repository -->
+    <section>
+      <h2>Learning Notes (PP1 - Grade 7)</h2>
+      <table class="searchable-table">
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Subject / Topic</th>
+            <th>View</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Grade 4</td>
+            <td>Science - Living Things</td>
+            <td><a class="button" href="notes/grade4/science_living_things.pdf" target="_blank">View</a></td>
+            <td><a class="button" href="notes/grade4/science_living_things.pdf" download>Download</a></td>
+          </tr>
+          <tr>
+            <td>Grade 3</td>
+            <td>Mathematics - Shapes</td>
+            <td><a class="button" href="notes/grade3/math_shapes.pdf" target="_blank">View</a></td>
+            <td><a class="button" href="notes/grade3/math_shapes.pdf" download>Download</a></td>
+          </tr>
+          <tr>
+            <td>PP1</td>
+            <td>Language Activities - Alphabets</td>
+            <td><a class="button" href="notes/pp1/language_alphabets.pdf" target="_blank">View</a></td>
+            <td><a class="button" href="notes/pp1/language_alphabets.pdf" download>Download</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    function searchExams() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const tables = document.querySelectorAll(".searchable-table");
+      tables.forEach(table => {
+        const rows = table.querySelectorAll("tbody tr");
+        rows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(input) ? "" : "none";
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
